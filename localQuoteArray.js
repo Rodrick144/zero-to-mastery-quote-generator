@@ -41306,4 +41306,4 @@ const localQuotes = [
         "tag": "peace"
     }
     
-]
+];
