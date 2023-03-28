@@ -1,12 +1,15 @@
+// let apiQuotes = [];
+
 // Show new quote
 function newQuote() {
     // Pick a random quote from API quotes array
-    const Quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-    console.log(Quote);
+    // const experiment = localQuotes[12];
+    const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
+    console.log(quote);
 }
 
 
-// // Get quotes from API
+// Get quotes from API
 // async function getQuotes() {
 //     const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
 
@@ -21,4 +24,5 @@ function newQuote() {
 // }
 
 // On load:
+// getQuotes();
 newQuote();
