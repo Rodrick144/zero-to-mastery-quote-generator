@@ -3,7 +3,7 @@
 // Show new quote
 function newQuote() {
     // Pick a random quote from API quotes array
-    // const experiment = localQuotes[12];
+    // const experiment = localQuotes[2];
     const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
     console.log(quote);
 }
