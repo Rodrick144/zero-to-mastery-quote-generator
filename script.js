@@ -1,5 +1,18 @@
 const testingStandby = document.getElementById("testing-standby");
 
+const qBtn = document.getElementById("q");
+const wBtn = document.getElementById("w");
+const eBtn = document.getElementById("e");
+const rBtn = document.getElementById("r");
+const tBtn = document.getElementById("t");
+const yBtn = document.getElementById("y");
+const uBtn = document.getElementById("u");
+const iBtn = document.getElementById("i");
+const oBtn = document.getElementById("o");
+const pBtn = document.getElementById("p");
+
+const currGuess = document.getElementById("current-guess");
+
 // this is just a setter function that changes one character in a string to a different character
 function swapCharacter (targetWord, targetIndex, replacementChar) {
     let finalReturnedWord = "";
@@ -126,21 +139,22 @@ function scoreCharacters (guessWord, comparisonWord) {
     return charScore;
 }
 
-// let example = scoreCharacters("ounce", "latte");
-// console.log(example);
-// example = scoreCharacters("raise", "latte");
-// console.log(example);
-// example = scoreCharacters("latte", "lathe");
-// console.log(example);
-// example = scoreCharacters("lathe", "lathe");
-// console.log(example);
+let guessEntry = "";
 
-console.log(mapCharInstances("latte"));
-console.log(mapCharInstances("tenet"));
-console.log(mapCharInstances("ounce"));
+function typeGuess(keyboardChar) {
+    if (!(guessEntry.length >= 5)) {
+        guessEntry += keyboardChar;
+        currGuess.textContent = guessEntry;
+    }
+}
 
-console.log(scoreCharacters("latte", "stair"));
-console.log(scoreCharacters("tenet", "latte"));
-console.log(scoreCharacters("ounce", "canoe"));
-
-
+qBtn.addEventListener('click', typeGuess("q"));
+wBtn.addEventListener('click', typeGuess("w"));
+eBtn.addEventListener('click', typeGuess);
+rBtn.addEventListener('click', typeGuess);
+tBtn.addEventListener('click', typeGuess);
+yBtn.addEventListener('click', typeGuess);
+uBtn.addEventListener('click', typeGuess);
+iBtn.addEventListener('click', typeGuess("i"));
+oBtn.addEventListener('click', typeGuess);
+pBtn.addEventListener('click', typeGuess);
