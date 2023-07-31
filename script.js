@@ -1,4 +1,18 @@
 const testingStandby = document.getElementById("testing-standby");
+const firstWord = document.getElementById("first-guess");
+
+const keyboardBtns = document.querySelectorAll("button");
+const clearBtn = document.getElementById("clear");
+
+const enterBtn = document.getElementById("enter-button");
+const backspaceBtn = document.getElementById("backspace-button");
+
+const firstLine = document.getElementById("line-1");
+const secondLine = document.getElementById("line-2");
+const thirdLine = document.getElementById("line-3");
+const fourthLine = document.getElementById("line-4");
+const fifthLine = document.getElementById("line-5");
+const sixthLine = document.getElementById("line-6");
 
 const qBtn = document.getElementById("q");
 const wBtn = document.getElementById("w");
@@ -11,6 +25,8 @@ const iBtn = document.getElementById("i");
 const oBtn = document.getElementById("o");
 const pBtn = document.getElementById("p");
 
+const testRButton = document.getElementById("test-r-button");
+const testEButton = document.getElementById("test-e-button");
 const currGuess = document.getElementById("current-guess");
 
 // this is just a setter function that changes one character in a string to a different character
@@ -148,13 +164,69 @@ function typeGuess(keyboardChar) {
     }
 }
 
-qBtn.addEventListener('click', typeGuess("q"));
-wBtn.addEventListener('click', typeGuess("w"));
-eBtn.addEventListener('click', typeGuess);
-rBtn.addEventListener('click', typeGuess);
-tBtn.addEventListener('click', typeGuess);
-yBtn.addEventListener('click', typeGuess);
-uBtn.addEventListener('click', typeGuess);
-iBtn.addEventListener('click', typeGuess("i"));
-oBtn.addEventListener('click', typeGuess);
-pBtn.addEventListener('click', typeGuess);
+let tackItOnTest = "";
+
+function R() {
+    tackItOnTest += "R";
+    testingStandby.textContent = tackItOnTest;
+}
+
+function E() {
+    tackItOnTest += "E";
+    testingStandby.textContent = tackItOnTest;
+}
+
+let line = 1;
+function ENTER() {
+    if (line == 1) {
+        firstLine.textContent = testingStandby.textContent;
+    } else if (line == 2) {
+        secondLine.textContent = testingStandby.textContent;
+    } else if (line == 3) {
+        thirdLine.textContent = testingStandby.textContent;
+    } else if (line == 4) {
+        fourthLine.textContent = testingStandby.textContent;
+    } else if (line == 5) {
+        fifthLine.textContent = testingStandby.textContent;
+    } else if (line == 6) {
+        sixthLine.textContent = testingStandby.textContent;
+    }
+
+    
+
+    line++;
+    tackItOnTest = "";
+    testingStandby.textContent = tackItOnTest;
+}
+
+function BACKSPACE() {
+    let minusOne = "";
+    for (let i = 0; i < tackItOnTest.length; i++) {
+        if (i != (tackItOnTest.length - 1)) {
+            minusOne += tackItOnTest[i];
+        }
+    }
+    tackItOnTest = minusOne;
+    testingStandby.textContent = tackItOnTest;
+}
+
+let thing = "latte";
+console.log(thing);
+thing = thing[thing.length-1];
+console.log(thing);
+
+testRButton.addEventListener("click", R);
+testEButton.addEventListener("click", E);
+enterBtn.addEventListener("click", ENTER);
+backspaceBtn.addEventListener("click", BACKSPACE);
+
+// qBtn.addEventListener('click', console.log());
+// wBtn.addEventListener('click', typeGuess("w"));
+// eBtn.addEventListener('click', typeGuess);
+// rBtn.addEventListener('click', typeGuess);
+// tBtn.addEventListener('click', typeGuess);
+// yBtn.addEventListener('click', typeGuess);
+// uBtn.addEventListener('click', typeGuess);
+// iBtn.addEventListener('click', typeGuess("i"));
+// oBtn.addEventListener('click', typeGuess);
+// pBtn.addEventListener('click', typeGuess);
